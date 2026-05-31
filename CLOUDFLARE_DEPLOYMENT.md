@@ -73,13 +73,13 @@ SITE_URL=https://你的项目名.pages.dev
 
 重新部署后检查：
 
-- `https://你的项目名.pages.dev/sitemap.xml`
-- `https://你的项目名.pages.dev/robots.txt`
+- `https://ai-tools-guide-88z.pages.dev/sitemap.xml`
+- `https://ai-tools-guide-88z.pages.dev/robots.txt`
 - 任意文章页源码中的 canonical
 
 这些地址都应该指向 `.pages.dev`，不能再出现 `example.com`。
 
-## 6. 提交搜索引擎
+## 6. 提交搜索引擎：先做 Google 和 Bing
 
 没有独立域名时，建议优先做 Google 和 Bing：
 
