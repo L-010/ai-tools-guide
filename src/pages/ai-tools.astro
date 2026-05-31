@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ToolCard from "@/components/ToolCard.astro";
+import CTABox from "@/components/CTABox.astro";
+import { tools } from "@/data/tools";
+---
+<BaseLayout title="AI工具总览｜ChatGPT、Claude、Gemini、Cursor、Perplexity 怎么选" description="汇总常见 AI 工具的适用场景、选型建议和购买前提醒，帮助用户从用途、预算和频率判断合适方案。" pathname="/ai-tools/">
+  <section class="mx-auto max-w-6xl px-5 py-12">
+    <h1 class="text-4xl font-bold text-ink">AI 工具总览：按用途理解每个工具的优势</h1>
+    <p class="mt-5 max-w-3xl text-lg leading-8 text-muted">本页汇总 ChatGPT、Claude、Gemini、Cursor、Perplexity、GitHub Copilot 的常见用途。建议先看主要场景，再进入对比页或购买前提醒页。</p>
+    <div class="mt-8 grid gap-4 md:grid-cols-3">{tools.map((tool) => <ToolCard name={tool.name} href={`/${tool.slug}/`} bestFor={tool.bestFor} note={tool.note} />)}</div>
+    <CTABox pageSlug="ai-tools" position="bottom" />
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import { SITE } from "@/data/site";
+---
+<footer class="mt-16 border-t border-line bg-white">
+  <div class="mx-auto grid max-w-6xl gap-6 px-5 py-10 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <p class="font-bold text-ink">{SITE.name}</p>
+      <p class="mt-2 text-sm leading-6 text-muted">{SITE.description}</p>
+    </div>
+    <div>
+      <p class="font-semibold text-ink">核心入口</p>
+      <ul class="mt-2 space-y-2 text-sm">
+        <li><a href="/ai-selector/">AI 工具选择器</a></li>
+        <li><a href="/ai-tools-how-to-choose/">AI 工具怎么选</a></li>
+        <li><a href="/shop/">购买入口</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-ink">使用提醒</p>
+      <p class="mt-2 text-sm leading-6 text-muted">本站提供选型和教程信息，具体方案以小店页面展示为准。购买前请先确认用途、预算和使用频率。</p>
+    </div>
+  </div>
+</footer>

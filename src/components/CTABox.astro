@@ -1,0 +1,26 @@
+---
+import BuyButton from "@/components/BuyButton.astro";
+type Props = {
+  pageSlug: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  position: "top" | "middle" | "bottom" | "selector";
+};
+const {
+  pageSlug,
+  title = "已经确定自己的使用场景？",
+  description = "可以进入小店按分类查看当前可选 AI 工具方案。建议先按用途、预算和使用频率确认需求，再做选择。",
+  buttonText = "进入AI工具小店选购",
+  position
+} = Astro.props;
+---
+<section class="my-7 rounded-lg border border-teal-200 bg-teal-50 p-5">
+  <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p class="text-lg font-bold text-ink">{title}</p>
+      <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+    </div>
+    <BuyButton pageSlug={pageSlug} position={position} text={buttonText} />
+  </div>
+</section>

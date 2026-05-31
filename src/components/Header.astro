@@ -1,0 +1,17 @@
+---
+import { SITE } from "@/data/site";
+const nav = [
+  { href: "/ai-tools/", label: "工具总览" },
+  { href: "/ai-selector/", label: "选择器" },
+  { href: "/ai-subscription-guide/", label: "订阅避坑" },
+  { href: "/shop/", label: "购买入口" }
+];
+---
+<header class="border-b border-line bg-white/95">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4">
+    <a class="text-lg font-bold text-ink no-underline" href="/">{SITE.shortName}</a>
+    <nav aria-label="主导航" class="flex flex-wrap gap-3 text-sm">
+      {nav.map((item) => <a class="rounded-full px-3 py-2 text-muted no-underline hover:bg-slate-100 hover:text-ink" href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</header>

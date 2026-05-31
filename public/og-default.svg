@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AI工具选型指南</title>
+  <desc id="desc">ChatGPT、Claude、Gemini、Cursor、Perplexity 等 AI 工具选型与教程。</desc>
+  <rect width="1200" height="630" fill="#f7fafc"/>
+  <rect x="72" y="72" width="1056" height="486" rx="24" fill="#ffffff" stroke="#d8e1ea" stroke-width="2"/>
+  <circle cx="152" cy="152" r="36" fill="#0f766e"/>
+  <path d="M134 152h36M152 134v36" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <text x="112" y="255" fill="#17202a" font-family="Arial, sans-serif" font-size="70" font-weight="700">AI工具选型指南</text>
+  <text x="112" y="340" fill="#5d6b7a" font-family="Arial, sans-serif" font-size="34">按用途、预算和使用频率选择合适的 AI 工具</text>
+  <text x="112" y="420" fill="#0f766e" font-family="Arial, sans-serif" font-size="30">ChatGPT · Claude · Gemini · Cursor · Perplexity</text>
+</svg>

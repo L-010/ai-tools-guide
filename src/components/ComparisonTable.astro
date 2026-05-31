@@ -1,0 +1,16 @@
+---
+type Row = Record<string, string>;
+type Props = { columns: string[]; rows: Row[]; caption?: string };
+const { columns, rows, caption } = Astro.props;
+---
+<div class="table-scroll my-6">
+  <table>
+    {caption && <caption class="mb-2 text-left text-sm text-muted">{caption}</caption>}
+    <thead>
+      <tr>{columns.map((column) => <th>{column}</th>)}</tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => <tr>{columns.map((column) => <td>{row[column]}</td>)}</tr>)}
+    </tbody>
+  </table>
+</div>

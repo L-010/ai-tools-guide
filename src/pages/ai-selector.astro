@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ScenarioSelector from "@/components/ScenarioSelector.astro";
+import CTABox from "@/components/CTABox.astro";
+---
+<BaseLayout title="AI工具选择器｜按用途、预算和频率推荐 ChatGPT、Claude、Cursor 等工具" description="通过用途、预算、使用频率和技术水平快速判断适合的 AI 工具组合，并查看购买前注意事项和对应场景方案。" pathname="/ai-selector/">
+  <section class="mx-auto max-w-6xl px-5 py-12">
+    <h1 class="text-4xl font-bold text-ink">AI 工具选择器</h1>
+    <p class="mt-5 max-w-3xl text-lg leading-8 text-muted">选择器会根据论文、编程、办公、PPT、搜索、自媒体、电商、翻译等用途给出推荐组合。页面基础说明已经静态输出，交互只用于加快筛选。</p>
+    <div class="mt-8"><ScenarioSelector /></div>
+    <section class="prose-site mt-10">
+      <h2>选择逻辑</h2>
+      <p>如果你的主要需求是写论文和读文献，应优先关注资料线索、长文理解、摘要和润色；如果主要需求是写代码，应优先关注项目上下文、补全质量和调试解释；如果主要需求是办公，应优先关注文档、会议、表格和汇报场景。</p>
+      <h2>购买前注意事项</h2>
+      <p>不要只看单一工具名，也不要只看价格。更稳妥的方式是先确认自己每周会在哪些场景使用，再查看小店当前可选分类是否匹配。所有购买入口都需要用户主动点击，不会自动跳转。</p>
+    </section>
+    <CTABox pageSlug="ai-selector" position="bottom" buttonText="查看可选AI工具方案" />
+  </section>
+</BaseLayout>

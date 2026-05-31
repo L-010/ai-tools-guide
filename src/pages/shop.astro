@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CTABox from "@/components/CTABox.astro";
+import FAQ from "@/components/FAQ.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { absoluteUrl } from "@/utils/urls";
+import { webPageSchema } from "@/utils/schema";
+const title = "AI工具购买入口｜按用途选择 ChatGPT、Claude、Gemini、Cursor 等工具";
+const description = "本页帮助用户按论文、编程、办公、搜索、学生党和稳定使用等用途选择 AI 工具，再进入小店查看当前可选分类和具体方案。";
+const faq = [
+  { question: "这个页面会列出小店全部商品吗？", answer: "不会。本页只做用途导购，具体可选分类和方案以小店页面为准。" },
+  { question: "应该先看用途还是先看价格？", answer: "建议先看用途和使用频率，再看预算。只按价格选择容易买到不适合自己的工具。" },
+  { question: "论文场景优先看哪些工具？", answer: "通常先看 Claude、Perplexity 和 ChatGPT 的组合，分别覆盖长文理解、资料线索和润色修改。" },
+  { question: "编程场景优先看哪些工具？", answer: "通常先看 Cursor、GitHub Copilot 和 ChatGPT，分别覆盖项目理解、补全和问题解释。" },
+  { question: "进入小店后怎么选择？", answer: "先对照自己的用途，再阅读小店页面说明，确认当前可选分类是否匹配需求后再下单。" }
+];
+const crumbs = [{ name: "首页", url: absoluteUrl("/") }, { name: "购买入口", url: absoluteUrl("/shop/") }];
+---
+<BaseLayout title={title} description={description} pathname="/shop/" schema={webPageSchema({ title, description, pathname: "/shop/", faq, crumbs })}>
+  <section class="mx-auto max-w-5xl px-5 py-12">
+    <Breadcrumbs items={crumbs} />
+    <h1 class="text-4xl font-bold text-ink">AI工具购买入口</h1>
+    <p class="mt-5 text-lg leading-8 text-muted">本页用于帮助你按用途选择合适的 AI 工具。确认需求后，可进入小店查看当前可选分类和具体方案。</p>
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      {[
+        ["写论文/读文献", "关注长文理解、资料线索、引用核验和润色，适合先看 Claude、Perplexity、ChatGPT。"],
+        ["写代码/改项目", "关注项目上下文、补全、调试和解释，适合先看 Cursor、GitHub Copilot、ChatGPT。"],
+        ["办公/PPT/文案", "关注文档、总结、汇报、大纲和表达优化，适合先看 ChatGPT、Claude、Gemini。"],
+        ["查资料/搜索", "关注来源、事实核对和检索效率，适合先看 Perplexity、Gemini、ChatGPT。"],
+        ["学生党低成本方案", "先解决最高频学习和论文需求，再考虑是否补充搜索或代码工具。"],
+        ["稳定使用方案", "先确认用途、频率和预算，再选择更贴近工作流的工具组合。"]
+      ].map(([heading, text]) => <section class="rounded-lg border border-line bg-white p-5"><h2 class="text-xl font-bold text-ink">{heading}</h2><p class="mt-2 leading-7 text-muted">{text}</p></section>)}
+    </div>
+    <CTABox pageSlug="shop" position="bottom" buttonText="前往小店查看分类" />
+    <FAQ items={faq} />
+  </section>
+</BaseLayout>

@@ -1,0 +1,74 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CTABox from "@/components/CTABox.astro";
+import FAQ from "@/components/FAQ.astro";
+import ToolCard from "@/components/ToolCard.astro";
+import ScenarioSelector from "@/components/ScenarioSelector.astro";
+import { tools } from "@/data/tools";
+import { scenarios } from "@/data/keywords";
+import { websiteSchema, faqSchema } from "@/utils/schema";
+
+const title = "AI工具选型指南｜ChatGPT、Claude、Gemini、Cursor订阅与使用教程";
+const description = "提供 ChatGPT、Claude、Gemini、Cursor、Perplexity 等 AI 工具的选型建议、使用教程、订阅避坑和办公、论文、编程场景方案，帮助用户按需求选择合适的 AI 工具。";
+const faq = [
+  { question: "第一次选择 AI 工具应该先看什么？", answer: "先看用途和频率，再看预算。论文、编程、办公、搜索对应的工具组合不同，不建议只按名气或价格判断。" },
+  { question: "本站会复制小店商品信息吗？", answer: "不会。本站只做选型、教程和导购说明，具体可选分类和方案以小店页面为准。" },
+  { question: "AI 工具可以只买一个吗？", answer: "可以。高频办公和学习用户通常先选通用工具，研究和编程用户再按场景补充搜索或代码工具。" },
+  { question: "购买入口为什么会打开新页面？", answer: "为了让你先在本站完成判断，再主动进入小店查看当前可选方案，不做自动跳转。" },
+  { question: "页面建议会随工具变化更新吗？", answer: "会。文章保留更新时间，后续可以根据真实搜索词、点击数据和工具变化继续更新。" }
+];
+---
+<BaseLayout title={title} description={description} pathname="/" schema={[...websiteSchema(), faqSchema(faq)]}>
+  <section class="bg-white">
+    <div class="mx-auto grid max-w-6xl gap-8 px-5 py-14 md:grid-cols-[1.2fr_0.8fr] md:py-20">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-brand">AI tools guide</p>
+        <h1 class="mt-4 text-4xl font-bold leading-tight text-ink md:text-6xl">AI工具选型指南：不知道买哪个AI工具，看这一篇就够了</h1>
+        <p class="mt-6 text-lg leading-8 text-muted">不同 AI 工具适合不同场景。写论文、写代码、做 PPT、查资料、办公提效，对应的工具选择并不一样。本页帮你按用途、预算和使用习惯快速判断适合的 AI 工具，并提供对应购买入口。</p>
+        <CTABox pageSlug="home" position="top" buttonText="进入AI工具小店选购" />
+      </div>
+      <div class="rounded-lg border border-line bg-slate-50 p-5">
+        <h2 class="text-xl font-bold text-ink">快速结论</h2>
+        <ul class="mt-4 space-y-3 text-sm leading-6 text-muted">
+          <li>通用办公和学习：优先看 ChatGPT。</li>
+          <li>长文写作和资料整理：重点看 Claude。</li>
+          <li>查资料和研究线索：重点看 Perplexity。</li>
+          <li>写代码和改项目：重点看 Cursor 与 Copilot。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="text-2xl font-bold text-ink">AI 工具快速选择器</h2>
+    <p class="mt-3 text-muted">先按用途、预算、使用频率和技术水平做判断，再进入具体页面查看细节。</p>
+    <div class="mt-5"><ScenarioSelector /></div>
+    <CTABox pageSlug="home-selector" position="selector" buttonText="按用途选择AI工具" />
+  </section>
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="text-2xl font-bold text-ink">按场景进入</h2>
+    <div class="mt-5 grid gap-4 md:grid-cols-4">
+      {scenarios.map((item) => <a class="rounded-lg border border-line bg-white p-4 no-underline hover:shadow-sm" href={item.href}><h3 class="font-bold text-ink">{item.label}</h3><p class="mt-2 text-sm leading-6 text-muted">{item.description}</p></a>)}
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="text-2xl font-bold text-ink">按工具进入</h2>
+    <div class="mt-5 grid gap-4 md:grid-cols-3">
+      {tools.map((tool) => <ToolCard name={tool.name} href={`/${tool.slug}/`} bestFor={tool.bestFor} note={tool.note} />)}
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="text-2xl font-bold text-ink">热门对比与购买前避坑</h2>
+    <div class="mt-5 grid gap-4 md:grid-cols-3">
+      {[
+        ["ChatGPT 和 Claude 怎么选", "/chatgpt-vs-claude/"],
+        ["Cursor 和 GitHub Copilot 怎么选", "/cursor-vs-github-copilot/"],
+        ["AI 工具订阅避坑指南", "/ai-subscription-guide/"],
+        ["第一次买 AI 会员应该先买哪个", "/first-ai-membership-guide/"],
+        ["学生党 AI 工具低成本方案", "/ai-tools-low-cost-plan/"],
+        ["ChatGPT、Claude、Perplexity 怎么搭配", "/ai-tools-combination-guide/"]
+      ].map(([label, href]) => <a class="rounded-lg border border-line bg-white p-4 font-semibold no-underline" href={href}>{label}</a>)}
+    </div>
+    <CTABox pageSlug="home-bottom" position="bottom" buttonText="前往小店查看分类" />
+    <FAQ items={faq} />
+  </section>
+</BaseLayout>

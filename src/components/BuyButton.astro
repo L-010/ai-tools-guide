@@ -1,0 +1,17 @@
+---
+import { shopLink } from "@/utils/urls";
+type Props = { pageSlug: string; text?: string; position: string; class?: string };
+const { pageSlug, text = "进入AI工具小店选购", position } = Astro.props;
+const href = shopLink(pageSlug);
+---
+<a
+  href={href}
+  target="_blank"
+  rel="nofollow sponsored noopener"
+  data-shop-cta
+  data-page-slug={pageSlug}
+  data-cta-position={position}
+  class:list={["inline-flex items-center justify-center rounded-md bg-brand px-5 py-3 text-sm font-semibold text-white no-underline transition hover:bg-teal-800", Astro.props.class]}
+>
+  {text}
+</a>

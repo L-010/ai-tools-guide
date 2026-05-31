@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import CTABox from "@/components/CTABox.astro";
+import FAQ from "@/components/FAQ.astro";
+import TrustNotice from "@/components/TrustNotice.astro";
+import { absoluteUrl } from "@/utils/urls";
+import { articleSchema } from "@/utils/schema";
+
+const { entry } = Astro.props;
+const data = entry.data;
+const pageSlug = entry.slug;
+const crumbs = [
+  { name: "首页", url: absoluteUrl("/") },
+  { name: data.category, url: absoluteUrl("/ai-tools/") },
+  { name: data.title, url: absoluteUrl(pageSlug) }
+];
+const schema = articleSchema({
+  title: data.title,
+  description: data.description,
+  slug: pageSlug,
+  updatedAt: data.updatedAt,
+  faq: data.faq,
+  crumbs
+});
+---
+<BaseLayout title={data.title} description={data.description} pathname={pageSlug} type="article" schema={schema}>
+  <article class="mx-auto max-w-[860px] px-5 py-8 md:py-12">
+    <Breadcrumbs items={crumbs} />
+    <p class="mb-3 text-sm font-semibold text-brand">{data.category} · 更新于 {data.updatedAt}</p>
+    <h1 class="text-3xl font-bold leading-tight text-ink md:text-5xl">{data.title}</h1>
+    <p class="mt-5 text-lg leading-8 text-muted">{data.description}</p>
+    <CTABox pageSlug={pageSlug} position="top" buttonText={data.ctaText} />
+    <TrustNotice />
+    <div class="prose-site mt-8">
+      <slot />
+    </div>
+    <CTABox pageSlug={pageSlug} position="middle" title="看完对比后，可以再确认当前可选方案" />
+    <FAQ items={data.faq} />
+    <CTABox pageSlug={pageSlug} position="bottom" title="最后确认：先按用途选，再进入小店查看分类" />
+  </article>
+</BaseLayout>

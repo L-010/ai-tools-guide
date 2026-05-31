@@ -1,0 +1,60 @@
+---
+import BuyButton from "@/components/BuyButton.astro";
+const options = {
+  paper: { title: "论文与文献", tools: "Claude + Perplexity + ChatGPT", avoid: "不要只依赖一个工具完成检索、理解和润色。", link: "/ai-tools-for-paper-writing/" },
+  coding: { title: "编程与项目", tools: "Cursor + GitHub Copilot + ChatGPT", avoid: "不要只看补全速度，也要看项目上下文理解。", link: "/ai-tools-for-coding/" },
+  office: { title: "办公与汇报", tools: "ChatGPT + Gemini + Claude", avoid: "不要把会议纪要、汇报和表格分析混成同一个需求。", link: "/ai-tools-for-office/" },
+  ppt: { title: "PPT 与演示", tools: "ChatGPT + Claude", avoid: "不要只让 AI 生成页面，更要先定大纲和受众。", link: "/ai-tools-for-ppt/" },
+  search: { title: "搜索与资料", tools: "Perplexity + Gemini + ChatGPT", avoid: "不要省略事实核对和来源追踪。", link: "/perplexity-worth-it/" },
+  media: { title: "自媒体内容", tools: "Claude + ChatGPT", avoid: "不要直接发布未经改写和核验的文本。", link: "/ai-tools-for-self-media/" },
+  ecommerce: { title: "电商运营", tools: "ChatGPT + Gemini", avoid: "不要让工具替代产品定位和用户研究。", link: "/ai-tools-for-ecommerce/" },
+  translation: { title: "翻译润色", tools: "Claude + ChatGPT", avoid: "不要忽略术语一致性和语气校对。", link: "/ai-tools-for-translation/" }
+};
+---
+<section class="rounded-lg border border-line bg-white p-5">
+  <div class="grid gap-4 md:grid-cols-4">
+    <label class="text-sm font-semibold text-ink">用途
+      <select id="use-case" class="mt-2 w-full rounded-md border border-line p-3">
+        {Object.entries(options).map(([value, item]) => <option value={value}>{item.title}</option>)}
+      </select>
+    </label>
+    <label class="text-sm font-semibold text-ink">预算
+      <select id="budget" class="mt-2 w-full rounded-md border border-line p-3">
+        <option>低</option><option>中</option><option>高</option>
+      </select>
+    </label>
+    <label class="text-sm font-semibold text-ink">频率
+      <select id="frequency" class="mt-2 w-full rounded-md border border-line p-3">
+        <option>偶尔</option><option>每周</option><option>每天</option>
+      </select>
+    </label>
+    <label class="text-sm font-semibold text-ink">技术水平
+      <select id="level" class="mt-2 w-full rounded-md border border-line p-3">
+        <option>新手</option><option>熟练</option><option>程序员</option>
+      </select>
+    </label>
+  </div>
+  <div id="selector-result" class="mt-5 rounded-lg bg-slate-50 p-5">
+    <h2 class="text-xl font-bold text-ink">推荐工具组合：{options.paper.tools}</h2>
+    <p class="mt-2 text-muted">为什么推荐：论文和文献场景需要资料线索、长文理解和最终润色配合，组合使用比单点工具更稳妥。</p>
+    <p class="mt-2 text-muted">不推荐：{options.paper.avoid}</p>
+    <a href={options.paper.link} class="mt-3 inline-block font-semibold">查看详细场景方案</a>
+  </div>
+  <div class="mt-5">
+    <BuyButton pageSlug="ai-selector" position="selector" text="按用途选择AI工具" />
+  </div>
+</section>
+<script define:vars={{ options }}>
+  const select = document.getElementById("use-case");
+  const result = document.getElementById("selector-result");
+  const render = () => {
+    const item = options[select.value];
+    result.innerHTML = `
+      <h2 class="text-xl font-bold text-ink">推荐工具组合：${item.tools}</h2>
+      <p class="mt-2 text-muted">为什么推荐：${item.title}场景需要先明确目标，再用合适工具完成资料、生成、修改和复核。</p>
+      <p class="mt-2 text-muted">不推荐：${item.avoid}</p>
+      <a href="${item.link}" class="mt-3 inline-block font-semibold">查看详细场景方案</a>
+    `;
+  };
+  select?.addEventListener("change", render);
+</script>
