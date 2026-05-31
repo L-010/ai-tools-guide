@@ -10,6 +10,7 @@ export function withLeadingSlash(slug: string) {
 
 export function ensureTrailingSlash(pathname: string) {
   if (pathname === "") return "/";
+  if (/\.[a-z0-9]+$/i.test(pathname)) return pathname;
   return pathname.endsWith("/") ? pathname : `${pathname}/`;
 }
 
