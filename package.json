@@ -3,19 +3,16 @@
   "scripts": {
     "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build && npm run export:urls && npm run check:seo",
-    "preview": "npm run build && wrangler dev",
+    "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "export:urls": "tsx scripts/export-urls.ts",
     "submit:indexnow": "tsx scripts/submit-indexnow.ts",
     "submit:baidu": "tsx scripts/submit-baidu.ts",
     "ping:sitemaps": "tsx scripts/ping-sitemaps.ts",
     "check:seo": "tsx scripts/check-seo.ts",
     "check:links": "tsx scripts/check-links.ts",
-    "postbuild:submit": "npm run submit:indexnow && npm run submit:baidu && npm run ping:sitemaps",
-    "deploy": "npm run build && wrangler deploy",
-    "cf-typegen": "wrangler types"
+    "postbuild:submit": "npm run submit:indexnow && npm run submit:baidu && npm run ping:sitemaps"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "12",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.8.0",
     "tailwindcss": "^3.4.17"
@@ -26,7 +23,6 @@
     "cross-env": "^7.0.3",
     "fast-glob": "^3.3.3",
     "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "wrangler": "^4.95.0"
+    "typescript": "^5.8.3"
   }
 }
