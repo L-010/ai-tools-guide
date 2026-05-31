@@ -1,1 +1,0 @@
-Set INDEXNOW_KEY before submitting URLs.

@@ -10,6 +10,8 @@ if (!siteUrl || !key) {
 
 fs.mkdirSync("public", { recursive: true });
 fs.writeFileSync(path.join("public", `${key}.txt`), key, "utf8");
+fs.mkdirSync("dist", { recursive: true });
+fs.writeFileSync(path.join("dist", `${key}.txt`), key, "utf8");
 
 const urlsPath = path.join("dist", "urls.txt");
 if (!fs.existsSync(urlsPath)) {
