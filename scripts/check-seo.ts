@@ -46,10 +46,23 @@ if (!fs.existsSync(robotsPath)) failures.push("dist/robots.txt missing");
 if (fs.existsSync(robotsPath) && !fs.readFileSync(robotsPath, "utf8").includes("Sitemap:")) failures.push("robots.txt missing Sitemap directive");
 if (fs.existsSync(sitemapPath)) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
+  const $sitemap = cheerio.load(sitemap, { xmlMode: true });
+  const sitemapPaths = new Set(
+    $sitemap("loc")
+      .map((_, el) => {
+        const loc = $sitemap(el).text();
+        try {
+          return new URL(loc).pathname;
+        } catch {
+          return loc;
+        }
+      })
+      .get()
+  );
   for (const file of htmlFiles) {
     const rel = "/" + file.replace(/^dist[\\/]/, "").replace(/index\.html$/, "").replace(/\\/g, "/");
     if (rel === "/404/") continue;
-    if (!sitemap.includes(rel === "/" ? "https://example.com/" : rel)) failures.push(`sitemap missing ${rel}`);
+    if (!sitemapPaths.has(rel)) failures.push(`sitemap missing ${rel}`);
   }
 }
 
