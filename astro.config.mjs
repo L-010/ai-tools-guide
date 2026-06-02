@@ -4,6 +4,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   output: "static",
-  site: process.env.SITE_URL || "https://example.com",
+  site: 'https://suiliuxiaomi.com',
   trailingSlash: "always"
 });

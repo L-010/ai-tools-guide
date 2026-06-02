@@ -20,7 +20,7 @@ npm run preview
 - 必填环境变量：`SITE_URL`
 - 可选环境变量：`INDEXNOW_KEY`、`BAIDU_SITE`、`BAIDU_TOKEN`
 
-没有独立域名时，可以先使用 Cloudflare Pages 自动分配的免费二级域名，例如 `https://ai-tools-guide.pages.dev`。第一次部署成功后，把 `SITE_URL` 设置为这个 `.pages.dev` 地址，再重新部署一次，确保 sitemap、canonical、robots.txt 都输出真实线上地址。
+没有独立域名时，可以先使用 Cloudflare Pages 自动分配的免费二级域名，例如 `https://suiliuxiaomi.com`。第一次部署成功后，把 `SITE_URL` 设置为这个 `.pages.dev` 地址，再重新部署一次，确保 sitemap、canonical、robots.txt 都输出真实线上地址。
 
 详细流程见 `CLOUDFLARE_DEPLOYMENT.md`。
 

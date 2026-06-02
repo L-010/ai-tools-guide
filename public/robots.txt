@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://suiliuxiaomi.com/sitemap.xml

@@ -46,7 +46,7 @@ Cloudflare Pages 最常见的方式是连接 GitHub 仓库：
 部署完成后，Cloudflare 会给你一个免费地址，通常类似：
 
 ```text
-https://ai-tools-guide.pages.dev
+https://suiliuxiaomi.com
 ```
 
 这个地址就是你没有域名时的临时正式站。
@@ -73,8 +73,8 @@ SITE_URL=https://你的项目名.pages.dev
 
 重新部署后检查：
 
-- `https://ai-tools-guide-88z.pages.dev/sitemap.xml`
-- `https://ai-tools-guide-88z.pages.dev/robots.txt`
+- `https://suiliuxiaomi.com/sitemap.xml`
+- `https://suiliuxiaomi.com/robots.txt`
 - 任意文章页源码中的 canonical
 
 这些地址都应该指向 `.pages.dev`，不能再出现 `example.com`。

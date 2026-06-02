@@ -3,7 +3,7 @@ import path from "node:path";
 import fg from "fast-glob";
 import * as cheerio from "cheerio";
 
-const siteUrl = (process.env.SITE_URL || "https://example.com").replace(/\/$/, "");
+const siteUrl = (process.env.SITE_URL || "https://suiliuxiaomi.com").replace(/\/$/, "");
 const htmlFiles = await fg("dist/**/*.html");
 const urls = htmlFiles.map((file) => {
   const rel = file.replace(/^dist[\\/]/, "").replace(/index\.html$/, "").replace(/404\.html$/, "404/");
