@@ -36,6 +36,8 @@ for (const file of htmlFiles) {
     if (ctas < 3) failures.push(`${file}: fewer than 3 CTA links (${ctas})`);
     const internalLinks = $("a[href^='/']").length;
     if (internalLinks < 5) failures.push(`${file}: fewer than 5 internal links (${internalLinks})`);
+    const imgsWithoutAlt = $("img:not([alt])").length;
+    if (imgsWithoutAlt > 0) failures.push(`${file}: ${imgsWithoutAlt} image(s) missing alt attribute`);
   }
 }
 
