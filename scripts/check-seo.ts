@@ -4,7 +4,7 @@ import fg from "fast-glob";
 import * as cheerio from "cheerio";
 
 const forbidden = ["破解", "绕过", "共享账号", "低价卡密", "卡密秒发", "不封号", "保号", "灰产", "平台不让发", "薅羊毛"];
-const htmlFiles = (await fg("dist/**/*.html")).filter((file) => !file.endsWith("404.html") && !file.includes("google") && !file.includes("bing") && !file.includes("yandex"));
+const htmlFiles = (await fg("dist/**/*.html")).filter((file) => !file.endsWith("404.html") && !file.includes("google") && !file.includes("bing") && !file.includes("yandex") && !file.includes("baidu_verify"));
 const failures: string[] = [];
 const seenH1 = new Map<string, string>();
 
