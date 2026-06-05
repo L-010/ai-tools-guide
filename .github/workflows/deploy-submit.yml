@@ -24,12 +24,10 @@ jobs:
         run: npx astro build && npx tsx scripts/export-urls.ts && npx tsx scripts/check-seo.ts
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
-      - name: Wait for Cloudflare Pages deploy
+      - name: Wait for site to be live
         run: npx tsx scripts/wait-deploy.ts
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          SITE_URL: ${{ secrets.SITE_URL }}
       - name: Submit URLs to search engines
         run: npx tsx scripts/submit-indexnow.ts && npx tsx scripts/submit-baidu.ts && npx tsx scripts/ping-sitemaps.ts
         env:

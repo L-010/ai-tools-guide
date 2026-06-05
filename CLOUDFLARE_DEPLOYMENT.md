@@ -97,9 +97,6 @@ SITE_URL=https://suiliuxiaomi.com
 
 | Secret | 说明 |
 |--------|------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API 令牌（需 Pages 读写权限） |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 账户 ID |
-| `CLOUDFLARE_PROJECT_NAME` | Pages 项目名 |
 | `SITE_URL` | 站点完整 URL（`https://suiliuxiaomi.com`） |
 | `INDEXNOW_KEY` | IndexNow API key（可选） |
 | `BAIDU_SITE` | 百度站点地址（可选） |

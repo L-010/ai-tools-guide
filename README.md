@@ -33,10 +33,9 @@ npm run preview
 ## 如何提交搜索引擎
 `npm run build` 已内置搜索引引擎通知（IndexNow + 百度 + sitemap ping）。配置相应环境变量后，构建完成即自动提交。
 
-`git push` 后 GitHub Actions 会自动等待 Cloudflare Pages 部署完成并执行搜索引引擎提交作为兜底。需在 GitHub 仓库配置以下 Secrets：
+`git push` 后 GitHub Actions 会自动等待站点部署完成并执行搜索引引擎提交作为兜底。需在 GitHub 仓库配置以下 Secrets：
 
-- `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` / `CLOUDFLARE_PROJECT_NAME` — Cloudflare API 权限
-- `SITE_URL` — 站点地址
+- `SITE_URL` — 站点地址（必填，如 `https://suiliuxiaomi.com`）
 - `INDEXNOW_KEY` — IndexNow API key（可选）
 - `BAIDU_SITE` / `BAIDU_TOKEN` — 百度推送凭证（可选）
 
