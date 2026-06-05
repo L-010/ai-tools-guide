@@ -8,8 +8,6 @@ if (!siteUrl || !key) {
   process.exit(0);
 }
 
-fs.mkdirSync("public", { recursive: true });
-fs.writeFileSync(path.join("public", `${key}.txt`), key, "utf8");
 fs.mkdirSync("dist", { recursive: true });
 fs.writeFileSync(path.join("dist", `${key}.txt`), key, "utf8");
 

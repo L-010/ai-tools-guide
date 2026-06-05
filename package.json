@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build && npm run export:urls && npm run check:seo",
+    "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build && npm run export:urls && npm run check:seo && npm run postbuild:submit",
     "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "export:urls": "tsx scripts/export-urls.ts",
     "submit:indexnow": "tsx scripts/submit-indexnow.ts",

@@ -1,6 +1,8 @@
-# Cloudflare Pages 无域名上线流程
+# Cloudflare Pages 部署与自动化流程
 
-这套流程适合当前阶段：先用 Cloudflare Pages 免费二级域名上线，验证收录、点击和导流效果；等数据跑起来后，再决定是否购买独立域名。
+本站通过 Cloudflare Pages 连接 GitHub 仓库实现自动部署，并通过 GitHub Actions 实现部署后的搜索引引擎自动通知。
+
+当前域名：`https://suiliuxiaomi.com`
 
 ## 1. 本地确认
 
@@ -60,14 +62,10 @@ https://suiliuxiaomi.com
 3. 添加变量：
 
 ```text
-SITE_URL=https://你的项目名.pages.dev
+SITE_URL=https://suiliuxiaomi.com
 ```
 
-注意：
-
-- 不要在末尾加 `/`。
-- 不要继续使用 `https://example.com`。
-- 生产环境和预览环境都可以设置，但至少生产环境必须设置。
+注意：不要在末尾加 `/`。生产环境和预览环境都可以设置，但至少生产环境必须设置。
 
 保存后，进入 `Deployments`，点击 `Retry deployment` 或推送一次新提交触发重新部署。
 
@@ -77,7 +75,7 @@ SITE_URL=https://你的项目名.pages.dev
 - `https://suiliuxiaomi.com/robots.txt`
 - 任意文章页源码中的 canonical
 
-这些地址都应该指向 `.pages.dev`，不能再出现 `example.com`。
+这些地址都应该指向你的实际域名。
 
 ## 6. 提交搜索引擎：先做 Google 和 Bing
 
@@ -89,25 +87,27 @@ SITE_URL=https://你的项目名.pages.dev
 
 百度、360、搜狗、神马对免费二级域名的支持和效果可能不稳定，可以先放后。等后续购买独立域名后，再集中做国内搜索平台验证。
 
-## 7. 可选：IndexNow
+## 7. 搜索引引擎自动通知
 
-如果要用 IndexNow：
+`npm run build` 已内置 `postbuild:submit`（IndexNow + 百度 + sitemap ping）。Cloudflare Pages 构建时会自动执行，未配置对应环境变量时各脚本静默跳过。
 
-1. 准备一个 `INDEXNOW_KEY`。
-2. 在 Cloudflare Pages 环境变量中添加：
+### GitHub Actions 兜底（推荐）
 
-```text
-INDEXNOW_KEY=你的key
-```
+为确保搜索引擎通知 100% 送达，配置 GitHub Actions 工作流作为兜底。需在 GitHub 仓库 Settings → Secrets and variables → Actions 中添加：
 
-3. 本地或部署后运行：
+| Secret | 说明 |
+|--------|------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API 令牌（需 Pages 读写权限） |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 账户 ID |
+| `CLOUDFLARE_PROJECT_NAME` | Pages 项目名 |
+| `SITE_URL` | 站点完整 URL（`https://suiliuxiaomi.com`） |
+| `INDEXNOW_KEY` | IndexNow API key（可选） |
+| `BAIDU_SITE` | 百度站点地址（可选） |
+| `BAIDU_TOKEN` | 百度推送 token（可选） |
 
-```bash
-npm run export:urls
-npm run submit:indexnow
-```
+工作流触发条件：`main` 分支推送且涉及 `src/`、`public/`、`scripts/` 或 `package.json` 变更。
 
-如果没有 key，可以先跳过。sitemap 提交已经足够启动第一阶段。
+流程：`git push` → Cloudflare Pages 构建部署 + GitHub Actions 等待部署完成 → 提交 URL 到各搜索引擎。
 
 ## 8. 上线后每周工作
 

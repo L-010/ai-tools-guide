@@ -31,12 +31,22 @@ npm run preview
 修改 `src/data/site.ts` 中的 `shopUrl`。CTA 链接由 `src/utils/urls.ts` 统一生成。
 
 ## 如何提交搜索引擎
-先运行 `npm run build` 生成 `dist/urls.txt` 和 `sitemap.xml`，再根据环境变量运行 `npm run postbuild:submit`。
+`npm run build` 已内置搜索引引擎通知（IndexNow + 百度 + sitemap ping）。配置相应环境变量后，构建完成即自动提交。
 
-如果暂时没有域名，优先提交 Cloudflare Pages 的 `.pages.dev` 地址到 Google Search Console 和 Bing Webmaster Tools。百度、360、搜狗、神马可以等后续绑定独立域名后再重点处理。
+`git push` 后 GitHub Actions 会自动等待 Cloudflare Pages 部署完成并执行搜索引引擎提交作为兜底。需在 GitHub 仓库配置以下 Secrets：
+
+- `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` / `CLOUDFLARE_PROJECT_NAME` — Cloudflare API 权限
+- `SITE_URL` — 站点地址
+- `INDEXNOW_KEY` — IndexNow API key（可选）
+- `BAIDU_SITE` / `BAIDU_TOKEN` — 百度推送凭证（可选）
+
+百度、360、搜狗、神马可以等后续绑定独立域名后再重点处理。
 
 ## 如何查看转化点击
 所有购买按钮会触发 `shop_cta_click`，参数包括 page_slug、cta_position、cta_text、destination_url。页面兼容 `window.dataLayer` 和 `window.aiToolsGuideTrack`。
+
+## 自动化流程
+`git push` 后全自动完成：构建 → SEO 检查 → Cloudflare Pages 部署 → 搜索引引擎通知（IndexNow / 百度 / sitemap ping）。详细配置见 `CLOUDFLARE_DEPLOYMENT.md`。
 
 ## 注意事项
 本站不复制小店商品全集，不展示虚假价格、库存、评分或评价，不使用 Product/Offer/Review 结构化数据。所有购买入口都必须由用户主动点击。

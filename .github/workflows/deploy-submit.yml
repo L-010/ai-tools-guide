@@ -1,0 +1,39 @@
+name: Deploy & Submit to Search Engines
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/posts/**'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'package.json'
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
+      - name: Build and generate URL list
+        run: npx astro build && npx tsx scripts/export-urls.ts && npx tsx scripts/check-seo.ts
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+      - name: Wait for Cloudflare Pages deploy
+        run: npx tsx scripts/wait-deploy.ts
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+      - name: Submit URLs to search engines
+        run: npx tsx scripts/submit-indexnow.ts && npx tsx scripts/submit-baidu.ts && npx tsx scripts/ping-sitemaps.ts
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          BAIDU_SITE: ${{ secrets.BAIDU_SITE }}
+          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
