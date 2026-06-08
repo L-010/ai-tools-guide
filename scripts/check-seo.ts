@@ -28,7 +28,7 @@ for (const file of htmlFiles) {
   for (const term of forbidden) {
     if (html.includes(term)) failures.push(`${file}: forbidden term ${term}`);
   }
-  if (!["/", "/ai-tools/", "/ai-selector/", "/shop/"].includes(pathname)) {
+  if (!["/", "/tool-selection/", "/tool-comparison/", "/scenario-guides/", "/ai-tools/", "/ai-selector/", "/shop/"].includes(pathname)) {
     const text = $("main").text();
     const chineseChars = (text.match(/[\u4e00-\u9fff]/g) || []).length;
     if (chineseChars < 1200) failures.push(`${file}: fewer than 1200 Chinese chars (${chineseChars})`);

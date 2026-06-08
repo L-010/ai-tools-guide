@@ -18,12 +18,15 @@ export function absoluteUrl(pathname: string) {
   return `${trimSlash(SITE.siteUrl)}${ensureTrailingSlash(withLeadingSlash(pathname))}`;
 }
 
-export function shopLink(pageSlug: string) {
+export function shopLink(pageSlug: string, shopHref?: string, shopCategory?: string) {
   const params = new URLSearchParams({
     utm_source: "seo",
     utm_medium: "organic",
     utm_campaign: "ai_tools",
     utm_content: pageSlug
   });
-  return `${SITE.shopUrl}?${params.toString()}`;
+  if (shopCategory) params.set("shop_category", shopCategory);
+  const baseUrl = shopHref || SITE.shopUrl;
+  const separator = baseUrl.includes("?") ? "&" : "?";
+  return `${baseUrl}${separator}${params.toString()}`;
 }

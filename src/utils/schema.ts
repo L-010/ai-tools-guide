@@ -51,7 +51,15 @@ export function faqSchema(faq: Faq[]) {
   };
 }
 
-export function articleSchema(input: { title: string; description: string; slug: string; updatedAt: string; faq: Faq[]; crumbs: Crumb[] }) {
+export function articleSchema(input: {
+  title: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+  dateModified: string;
+  faq: Faq[];
+  crumbs: Crumb[];
+}) {
   return [
     {
       "@context": "https://schema.org",
@@ -59,8 +67,8 @@ export function articleSchema(input: { title: string; description: string; slug:
       headline: input.title,
       description: input.description,
       url: absoluteUrl(input.slug),
-      dateModified: input.updatedAt,
-      datePublished: input.updatedAt,
+      dateModified: input.dateModified,
+      datePublished: input.datePublished,
       author: { "@type": "Organization", name: SITE.name },
       publisher: { "@type": "Organization", name: SITE.name },
       inLanguage: SITE.locale

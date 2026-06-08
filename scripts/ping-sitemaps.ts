@@ -1,3 +1,5 @@
+export {};
+
 const siteUrl = process.env.SITE_URL;
 if (!siteUrl) {
   console.log("Sitemap ping skipped: SITE_URL is not configured.");

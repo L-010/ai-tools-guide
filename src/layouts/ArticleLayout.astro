@@ -3,40 +3,57 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import CTABox from "@/components/CTABox.astro";
 import FAQ from "@/components/FAQ.astro";
+import NextStepReading from "@/components/NextStepReading.astro";
 import TrustNotice from "@/components/TrustNotice.astro";
+import { getCollection } from "astro:content";
+import { categoryPages, getNextReadingPosts, getPostCategorySlug, getPostExcerpt } from "@/data/categories";
 import { absoluteUrl } from "@/utils/urls";
 import { articleSchema } from "@/utils/schema";
 
 const { entry } = Astro.props;
 const data = entry.data;
 const pageSlug = entry.slug;
+const categorySlug = getPostCategorySlug(entry);
+const category = categoryPages[categorySlug];
+const dateModified = data.dateModified || data.updatedAt;
+const datePublished = data.datePublished || data.updatedAt;
+const ctaText = data.ctaText || "按你的用途进入小店查看可选方案";
+const description = data.description || getPostExcerpt(entry);
+const allPosts = await getCollection("posts");
+const nextPosts = getNextReadingPosts(entry, allPosts);
 const crumbs = [
   { name: "首页", url: absoluteUrl("/") },
-  { name: data.category, url: absoluteUrl("/ai-tools/") },
+  { name: category.shortTitle, url: absoluteUrl(`/${category.slug}/`) },
   { name: data.title, url: absoluteUrl(pageSlug) }
 ];
 const schema = articleSchema({
   title: data.title,
-  description: data.description,
+  description,
   slug: pageSlug,
-  updatedAt: data.updatedAt,
+  datePublished,
+  dateModified,
   faq: data.faq,
   crumbs
 });
 ---
-<BaseLayout title={data.title} description={data.description} pathname={pageSlug} type="article" schema={schema}>
+<BaseLayout title={data.title} description={description} pathname={pageSlug} type="article" schema={schema}>
   <article class="mx-auto max-w-[860px] px-5 py-8 md:py-12">
     <Breadcrumbs items={crumbs} />
-    <p class="mb-3 text-sm font-semibold text-brand">{data.category} · 更新于 {data.updatedAt}</p>
+    <p class="mb-3 text-sm font-semibold text-brand">{category.shortTitle} · 更新于 {dateModified}</p>
     <h1 class="text-3xl font-bold leading-tight text-ink md:text-5xl">{data.title}</h1>
-    <p class="mt-5 text-lg leading-8 text-muted">{data.description}</p>
-    <CTABox pageSlug={pageSlug} position="top" buttonText={data.ctaText} />
+    <p class="mt-5 text-lg leading-8 text-muted">{description}</p>
+    <section class="mt-6 rounded-xl border border-line bg-white p-5">
+      <h2 class="text-xl font-bold text-ink">摘要结论</h2>
+      <p class="mt-3 leading-7 text-muted">{getPostExcerpt(entry)}</p>
+      <p class="mt-3 text-sm leading-6 text-muted">建议先确认用途、预算和使用频率，再进入具体工具或小店分类页面做最终判断。</p>
+    </section>
+    <CTABox pageSlug={pageSlug} position="top" buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
     <TrustNotice />
     <div class="prose-site mt-8">
       <slot />
     </div>
-    <CTABox pageSlug={pageSlug} position="middle" title="看完对比后，可以再确认当前可选方案" />
+    <CTABox pageSlug={pageSlug} position="middle" title="看完分析后，再确认当前可选方案" buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
     <FAQ items={data.faq} />
-    <CTABox pageSlug={pageSlug} position="bottom" title="最后确认：先按用途选，再进入小店查看分类" />
+    <NextStepReading posts={nextPosts} pageSlug={pageSlug} buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
   </article>
 </BaseLayout>

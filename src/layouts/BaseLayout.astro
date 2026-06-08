@@ -4,9 +4,10 @@ import Footer from "@/components/Footer.astro";
 import { buildSeo, type SeoProps } from "@/utils/seo";
 import "@/styles/global.css";
 
-type Props = SeoProps & { schema?: unknown };
+type Props = SeoProps & { schema?: unknown; robots?: "index,follow" | "noindex,follow" };
 const seo = buildSeo(Astro.props);
 const schema = Astro.props.schema;
+const robots = Astro.props.robots || "index,follow";
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -15,6 +16,7 @@ const schema = Astro.props.schema;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{seo.title}</title>
     <meta name="description" content={seo.description} />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={seo.canonical} />
     <link rel="alternate" hreflang="zh-CN" href={seo.canonical} />
     <meta property="og:title" content={seo.title} />

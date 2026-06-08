@@ -1,8 +1,15 @@
 ---
 import { shopLink } from "@/utils/urls";
-type Props = { pageSlug: string; text?: string; position: string; class?: string };
-const { pageSlug, text = "进入AI工具小店选购", position } = Astro.props;
-const href = shopLink(pageSlug);
+type Props = {
+  pageSlug: string;
+  text?: string;
+  position: string;
+  class?: string;
+  shopHref?: string;
+  shopCategory?: string;
+};
+const { pageSlug, text = "进入AI工具小店选购", position, shopHref, shopCategory } = Astro.props;
+const href = shopLink(pageSlug, shopHref, shopCategory);
 ---
 <a
   href={href}

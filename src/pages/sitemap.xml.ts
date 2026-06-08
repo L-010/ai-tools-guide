@@ -4,7 +4,7 @@ import { absoluteUrl } from "@/utils/urls";
 
 export async function GET() {
   const posts = await getCollection("posts");
-  const staticPages = ["/", "/ai-tools/", "/ai-selector/", "/shop/"];
+  const staticPages = ["/", "/tool-selection/", "/tool-comparison/", "/scenario-guides/", "/ai-tools/", "/ai-selector/", "/shop/"];
   const urls = [
     ...staticPages.map((path) => ({ loc: absoluteUrl(path), lastmod: new Date().toISOString().slice(0, 10) })),
     ...posts.map((post) => ({ loc: absoluteUrl(post.slug), lastmod: post.data.updatedAt }))
