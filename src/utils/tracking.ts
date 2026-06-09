@@ -1,6 +1,8 @@
 export type ShopCtaEvent = {
   page_slug: string;
   cta_position: string;
+  placement?: string;
+  scene?: string;
   cta_text: string;
   destination_url: string;
 };

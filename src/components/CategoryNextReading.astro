@@ -1,0 +1,33 @@
+---
+import type { PostEntry } from "@/data/categories";
+import { getPostDate, getPostExcerpt, getPostTags } from "@/data/categories";
+
+type Props = {
+  posts: PostEntry[];
+  categoryName: string;
+};
+
+const { posts, categoryName } = Astro.props;
+---
+<section id="category-next-reading" class="mt-10 rounded-2xl border border-line bg-white p-5 md:p-7" aria-labelledby="category-next-reading-title">
+  <div class="max-w-3xl">
+    <p class="text-sm font-semibold text-brand">{categoryName}精选</p>
+    <h2 id="category-next-reading-title" class="mt-2 text-2xl font-bold text-ink">下一步阅读</h2>
+    <p class="mt-2 text-sm leading-6 text-muted">优先阅读本分类的核心指南和被相关文章重点推荐的内容，再进入完整列表继续筛选。</p>
+  </div>
+  <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {posts.map((post) => (
+      <article class="flex min-w-0 flex-col rounded-xl border border-line bg-slate-50 p-4">
+        <div class="flex flex-wrap gap-2">
+          {getPostTags(post).slice(0, 2).map((tag) => <span class="rounded-full bg-white px-2.5 py-1 text-xs text-slate-600">{tag}</span>)}
+        </div>
+        <h3 class="mt-3 font-bold leading-snug text-ink">
+          <a class="text-ink no-underline hover:text-brand" href={`/${post.slug}/`}>{post.data.title}</a>
+        </h3>
+        <p class="mt-2 line-clamp-3 text-sm leading-6 text-muted">{getPostExcerpt(post)}</p>
+        <time class="mt-3 text-xs text-muted" datetime={getPostDate(post)}>更新于 {getPostDate(post)}</time>
+        <a class="mt-auto inline-flex min-h-11 items-center pt-3 text-sm font-semibold" href={`/${post.slug}/`}>继续阅读</a>
+      </article>
+    ))}
+  </div>
+</section>

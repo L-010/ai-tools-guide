@@ -1,6 +1,6 @@
 ---
 title: "程序员 AI 工具推荐"
-description: "围绕程序员 AI 工具推荐，从适用场景、预算、使用频率、工具差异和购买前注意事项做系统分析，帮助你按需求选择合适的 AI 工具。"
+description: "从代码补全、项目理解、报错排查、重构和 Code Review 出发，整理程序员常用 AI 工具及组合方式。"
 slug: "ai-tools-for-programmers"
 category: "场景需求"
 primaryKeyword: "程序员 AI 工具推荐"
@@ -10,7 +10,25 @@ secondaryKeywords:
   - "Cursor Copilot"
 intent: "scenario"
 updatedAt: "2026-05-30"
-ctaText: "进入AI工具小店选购"
+ctaText: "按开发工作流查看程序员 AI 方案"
+excerpt: "程序员应按开发工作流选择工具：补全型、项目理解型和通用解释型工具解决的问题并不相同。"
+dateModified: "2026-06-09"
+tags:
+  - "程序员 AI 工具"
+  - "代码补全"
+  - "项目重构"
+tools:
+  - "Cursor"
+  - "GitHub Copilot"
+  - "ChatGPT"
+  - "Claude Code"
+audience: "希望把 AI 纳入日常开发、调试和项目维护流程的程序员"
+shopCategory: "程序员工具"
+shopHref: "https://pay.ldxp.cn/shop/ai007"
+relatedSlugs:
+  - "ai-tools-for-coding"
+  - "cursor-pro-worth-it"
+  - "github-copilot-worth-it"
 faq:
   - question: "程序员 AI 工具推荐应该先看哪些因素？"
     answer: "先看日常开发场景是写新功能、改 Bug、读遗留代码还是做 Code Review。不同场景对 AI 工具的要求差异很大，补全型工具和项目理解型工具不能互相替代。"
@@ -44,6 +62,9 @@ faq:
 
 对于程序员 AI 工具推荐，建议把需求分成“必须完成”和“偶尔需要”两类。必须完成的任务决定主力工具，偶尔需要的任务决定是否补充第二工具。这样做的好处是预算更清楚，也能避免买了很多工具却没有稳定使用流程。
 
+
+<!-- contextual-shop-cta -->
+
 ## 工具差异与适配度
 
 | 判断维度 | 更适合的选择 | 原因 |
@@ -72,6 +93,8 @@ faq:
 购买前建议先写下三个问题：我最常用的场景是什么？我每周大概使用几次？我是否需要搜索、写作、代码或办公多个环节配合？如果答案很集中，就选一个主力工具；如果答案分散，再考虑组合方案。
 
 进入小店前，也建议先阅读对应分类说明，确认当前可选方案是否匹配你的用途。本站不会展示虚假的价格、库存或评分，也不会复制小店商品全集。这里的作用是帮你做选型教育，小店页面负责展示具体方案。
+
+<!-- consideration-shop-cta -->
 
 ## 推荐阅读和内部链接
 

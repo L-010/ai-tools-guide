@@ -7,9 +7,26 @@ import FAQ from "@/components/FAQ.astro";
 import { categoryList, getFeaturedPosts } from "@/data/categories";
 import { websiteSchema, faqSchema } from "@/utils/schema";
 
-const title = "AI工具选型指南｜按用途选择、对比与场景方案";
-const description = "从工具选择、工具对比和场景方案三个入口，帮助你判断 ChatGPT、Claude、Gemini、Cursor、Perplexity 等 AI 工具是否适合自己的用途。";
+const title = "AI工具怎么选｜工具对比与场景方案";
+const description = "按用途选择和对比 ChatGPT、Claude、Gemini、Cursor、Perplexity 等 AI 工具，查看论文、编程、办公场景方案与订阅建议。";
 const featuredPosts = getFeaturedPosts(await getCollection("posts"), 8);
+const heroVariants = [
+  {
+    id: "a",
+    title: "按用途选择真正适合你的 AI 工具",
+    description: "从工具选择、横向对比和具体场景出发，先判断需求，再决定使用哪款 AI 工具。"
+  },
+  {
+    id: "b",
+    title: "不知道 AI 工具怎么选？先看用途",
+    description: "写论文、做办公、查资料或写代码，对应的工具不同。这里帮你快速找到判断路径。"
+  },
+  {
+    id: "c",
+    title: "先确定任务，再选择 AI 工具",
+    description: "用清晰的选择、对比和场景指南，减少重复订阅，找到更贴近工作流的工具。"
+  }
+];
 const faq = [
   { question: "第一次选择 AI 工具应该从哪里开始？", answer: "先进入工具选择分类，列出自己每周最常见的任务、使用频率和预算，再判断需要通用工具、搜索工具、写作工具还是编程工具。" },
   { question: "工具选择、工具对比和场景方案有什么区别？", answer: "工具选择帮助你确定方向，工具对比解释两个或多个工具的差异，场景方案则从论文、编程、办公等具体任务出发提供组合建议。" },
@@ -22,14 +39,42 @@ const faq = [
   <section class="border-b border-line bg-white">
     <div class="mx-auto max-w-6xl px-5 py-14 md:py-20">
       <p class="text-sm font-bold uppercase tracking-wide text-brand">AI tools guide</p>
-      <h1 class="mt-4 max-w-4xl text-4xl font-bold leading-tight text-ink md:text-6xl">按用途选择真正适合你的 AI 工具</h1>
-      <p class="mt-6 max-w-3xl text-lg leading-8 text-muted">本站提供 AI 工具选型、横向对比和论文、编程、办公等场景方案，帮助你先完成判断，再决定是否进入小店查看可选分类。</p>
-      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-        <a class="inline-flex items-center justify-center rounded-md bg-brand px-5 py-3 text-sm font-semibold text-white no-underline transition hover:bg-teal-800" href="/tool-selection/">按用途开始选工具</a>
-        <a class="inline-flex items-center justify-center rounded-md border border-line bg-white px-5 py-3 text-sm font-semibold text-ink no-underline transition hover:bg-slate-50" href="/shop/">直接查看小店分类</a>
+      <h1 id="home-hero-title" class="mt-4 min-h-[5.5rem] max-w-4xl text-4xl font-bold leading-tight text-ink sm:min-h-0 md:text-6xl">{heroVariants[0].title}</h1>
+      <p id="home-hero-description" class="mt-5 min-h-[5rem] max-w-3xl text-lg leading-8 text-muted sm:min-h-0">{heroVariants[0].description}</p>
+      <div class="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+        <a data-home-entry="tool-selection" class="inline-flex min-h-11 items-center justify-center rounded-md bg-brand px-5 py-3 text-sm font-semibold text-white no-underline transition hover:bg-teal-800" href="/tool-selection/">按用途选工具</a>
+        <a data-home-entry="tool-comparison" class="inline-flex min-h-11 items-center justify-center rounded-md border border-brand bg-white px-5 py-3 text-sm font-semibold text-brand no-underline transition hover:bg-teal-50" href="/tool-comparison/">对比两款工具</a>
+        <a data-home-entry="scenario-guides" class="inline-flex min-h-11 items-center justify-center rounded-md border border-line bg-white px-5 py-3 text-sm font-semibold text-ink no-underline transition hover:bg-slate-50" href="/scenario-guides/">按场景看方案</a>
       </div>
     </div>
   </section>
+  <script is:inline define:vars={{ heroVariants }}>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get("hero_variant");
+      const variantId = requested && heroVariants.some((item) => item.id === requested) ? requested : "a";
+      const variant = heroVariants.find((item) => item.id === variantId) || heroVariants[0];
+      const title = document.getElementById("home-hero-title");
+      const description = document.getElementById("home-hero-description");
+      if (variant.id !== "a") {
+        if (title) title.textContent = variant.title;
+        if (description) description.textContent = variant.description;
+      }
+      document.documentElement.dataset.heroVariant = variant.id;
+      window.dataLayer?.push({ event: "home_hero_variant_view", variant_id: variant.id });
+
+      document.addEventListener("click", (event) => {
+        const link = event.target instanceof Element ? event.target.closest("[data-home-entry]") : null;
+        if (!link) return;
+        window.dataLayer?.push({
+          event: "home_entry_click",
+          variant_id: variant.id,
+          entry: link.getAttribute("data-home-entry") || "",
+          destination_url: link.getAttribute("href") || ""
+        });
+      });
+    })();
+  </script>
 
   <section class="mx-auto max-w-6xl px-5 py-12" aria-labelledby="main-categories">
     <h2 id="main-categories" class="text-3xl font-bold text-ink">三个主分类入口</h2>
@@ -49,7 +94,7 @@ const faq = [
   <section class="border-y border-line bg-slate-100/70">
     <div class="mx-auto max-w-6xl px-5 py-12">
       <h2 class="text-3xl font-bold text-ink">热门文章</h2>
-      <p class="mt-3 text-muted">从常见选型问题、工具对比和高频场景开始阅读。</p>
+      <p class="mt-3 text-muted">按最近更新与编辑推荐排序，从常见选型、工具对比和高频场景开始阅读。</p>
       <div class="mt-6 grid gap-5 md:grid-cols-2">
         {featuredPosts.map((post) => <ArticleCard post={post} />)}
       </div>

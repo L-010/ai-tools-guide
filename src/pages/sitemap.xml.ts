@@ -7,7 +7,7 @@ export async function GET() {
   const staticPages = ["/", "/tool-selection/", "/tool-comparison/", "/scenario-guides/", "/ai-tools/", "/ai-selector/", "/shop/"];
   const urls = [
     ...staticPages.map((path) => ({ loc: absoluteUrl(path), lastmod: new Date().toISOString().slice(0, 10) })),
-    ...posts.map((post) => ({ loc: absoluteUrl(post.slug), lastmod: post.data.updatedAt }))
+    ...posts.map((post) => ({ loc: absoluteUrl(post.slug), lastmod: post.data.dateModified || post.data.updatedAt }))
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

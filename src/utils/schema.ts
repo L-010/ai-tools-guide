@@ -5,20 +5,30 @@ type Crumb = { name: string; url: string };
 type Faq = { question: string; answer: string };
 
 export function websiteSchema() {
+  const websiteId = `${SITE.siteUrl.replace(/\/$/, "")}/#website`;
+  const organizationId = `${SITE.siteUrl.replace(/\/$/, "")}/#organization`;
   return [
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": websiteId,
       name: SITE.name,
       url: SITE.siteUrl,
       inLanguage: SITE.locale,
-      description: SITE.description
+      description: SITE.description,
+      publisher: { "@id": organizationId }
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": organizationId,
       name: SITE.name,
-      url: SITE.siteUrl
+      url: SITE.siteUrl,
+      description: SITE.description,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/favicon.svg")
+      }
     }
   ];
 }

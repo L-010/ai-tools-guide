@@ -48,6 +48,8 @@ const robots = Astro.props.robots || "index,follow";
         const payload = {
           page_slug: target.getAttribute("data-page-slug") || "",
           cta_position: target.getAttribute("data-cta-position") || "",
+          placement: target.getAttribute("data-placement") || "",
+          scene: target.getAttribute("data-scene") || "",
           cta_text: target.textContent?.trim() || "",
           destination_url: target.getAttribute("href") || ""
         };

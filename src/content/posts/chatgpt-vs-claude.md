@@ -1,6 +1,7 @@
 ---
 title: "ChatGPT 和 Claude 怎么选？"
-description: "围绕ChatGPT 和 Claude 怎么选，从适用场景、预算、使用频率、工具差异和购买前注意事项做系统分析，帮助你按需求选择合适的 AI 工具。"
+description: "对比 ChatGPT 与 Claude 在通用办公、长文写作、资料整理和中文表达上的适用差异，帮助你按高频任务选择主力工具。"
+excerpt: "ChatGPT 更偏通用任务与多场景协作，Claude 更适合长文处理和结构化写作；最终选择应回到你的日常工作流。"
 slug: "chatgpt-vs-claude"
 category: "工具对比"
 primaryKeyword: "ChatGPT 和 Claude 怎么选"
@@ -10,7 +11,23 @@ secondaryKeywords:
   - "写论文用 ChatGPT 还是 Claude"
 intent: "comparison"
 updatedAt: "2026-05-30"
-ctaText: "进入AI工具小店选购"
+dateModified: "2026-06-09"
+tags:
+  - "ChatGPT 对比"
+  - "Claude 对比"
+  - "AI 写作工具"
+tools:
+  - "ChatGPT"
+  - "Claude"
+audience: "在 ChatGPT 和 Claude 之间选择主力工具的办公、学习与写作用户"
+shopCategory: "ChatGPT 与 Claude"
+shopHref: "https://pay.ldxp.cn/shop/ai007"
+ctaText: "对照用途查看 ChatGPT 与 Claude 可选方案"
+relatedSlugs:
+  - "claude-vs-chatgpt-for-writing"
+  - "chatgpt-plus-worth-it"
+  - "claude-pro-worth-it"
+featured: true
 faq:
   - question: "ChatGPT 和 Claude 怎么选应该先看哪些因素？"
     answer: "建议先确认用途、使用频率、预算和工作流，再判断是否需要单一工具或工具组合。"
@@ -44,6 +61,8 @@ faq:
 
 对于ChatGPT 和 Claude 怎么选，建议把需求分成“必须完成”和“偶尔需要”两类。必须完成的任务决定主力工具，偶尔需要的任务决定是否补充第二工具。这样做的好处是预算更清楚，也能避免买了很多工具却没有稳定使用流程。
 
+<!-- contextual-shop-cta -->
+
 ## 工具差异与适配度
 
 | 判断维度 | 更适合的选择 | 原因 |
@@ -72,6 +91,8 @@ faq:
 购买前建议先写下三个问题：我最常用的场景是什么？我每周大概使用几次？我是否需要搜索、写作、代码或办公多个环节配合？如果答案很集中，就选一个主力工具；如果答案分散，再考虑组合方案。
 
 进入小店前，也建议先阅读对应分类说明，确认当前可选方案是否匹配你的用途。本站不会展示虚假的价格、库存或评分，也不会复制小店商品全集。这里的作用是帮你做选型教育，小店页面负责展示具体方案。
+
+<!-- consideration-shop-cta -->
 
 ## 推荐阅读和内部链接
 

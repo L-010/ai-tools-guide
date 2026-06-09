@@ -7,7 +7,7 @@ const { post } = Astro.props;
 const date = getPostDate(post);
 const tags = getPostTags(post);
 ---
-<article class="rounded-xl border border-line bg-white p-5 shadow-sm">
+<article class="flex h-full min-w-0 flex-col rounded-xl border border-line bg-white p-5 shadow-sm">
   <div class="flex flex-wrap items-center gap-2 text-xs text-muted">
     <time datetime={date}>{date}</time>
     <span>·</span>
@@ -22,5 +22,5 @@ const tags = getPostTags(post);
       {tags.map((tag) => <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">{tag}</span>)}
     </div>
   )}
-  <a class="mt-4 inline-block text-sm font-semibold" href={`/${post.slug}/`}>阅读全文</a>
+  <a class="mt-auto inline-flex min-h-11 items-center pt-3 text-sm font-semibold" href={`/${post.slug}/`}>阅读全文</a>
 </article>

@@ -1,6 +1,6 @@
 ---
 title: "读文献和总结论文用什么 AI？"
-description: "围绕读文献和总结论文用什么 AI，从适用场景、预算、使用频率、工具差异和购买前注意事项做系统分析，帮助你按需求选择合适的 AI 工具。"
+description: "按文献搜索、长文阅读、摘要整理和综述写作等步骤，说明 Perplexity、Claude、ChatGPT 的合理分工与核验要求。"
 slug: "ai-tools-for-literature-review"
 category: "场景需求"
 primaryKeyword: "读文献和总结论文用什么 AI"
@@ -10,7 +10,24 @@ secondaryKeywords:
   - "Perplexity 学术搜索"
 intent: "scenario"
 updatedAt: "2026-05-30"
-ctaText: "进入AI工具小店选购"
+ctaText: "按文献阅读流程查看 AI 工具方案"
+excerpt: "文献综述应把搜索线索、原文阅读和观点整理分开处理，AI 不能代替原始文献核验与引用确认。"
+dateModified: "2026-06-09"
+tags:
+  - "文献综述 AI"
+  - "学术搜索"
+  - "论文总结"
+tools:
+  - "Perplexity"
+  - "Claude"
+  - "ChatGPT"
+audience: "需要查找、阅读、总结文献并完成综述的学生与研究者"
+shopCategory: "文献阅读"
+shopHref: "https://pay.ldxp.cn/shop/ai007"
+relatedSlugs:
+  - "perplexity-worth-it"
+  - "ai-tools-for-paper-writing"
+  - "is-perplexity-good-for-research"
 faq:
   - question: "读文献和总结论文用什么 AI应该先看哪些因素？"
     answer: "先看文献处理需求：PDF 解析、多篇对比总结、研究方法提取还是文献综述撰写。长文档理解和多文档对比对 AI 的上下文窗口要求较高。"
@@ -44,6 +61,9 @@ faq:
 
 对于读文献和总结论文用什么 AI，建议把需求分成“必须完成”和“偶尔需要”两类。必须完成的任务决定主力工具，偶尔需要的任务决定是否补充第二工具。这样做的好处是预算更清楚，也能避免买了很多工具却没有稳定使用流程。
 
+
+<!-- contextual-shop-cta -->
+
 ## 工具差异与适配度
 
 | 判断维度 | 更适合的选择 | 原因 |
@@ -72,6 +92,8 @@ faq:
 购买前建议先写下三个问题：我最常用的场景是什么？我每周大概使用几次？我是否需要搜索、写作、代码或办公多个环节配合？如果答案很集中，就选一个主力工具；如果答案分散，再考虑组合方案。
 
 进入小店前，也建议先阅读对应分类说明，确认当前可选方案是否匹配你的用途。本站不会展示虚假的价格、库存或评分，也不会复制小店商品全集。这里的作用是帮你做选型教育，小店页面负责展示具体方案。
+
+<!-- consideration-shop-cta -->
 
 ## 推荐阅读和内部链接
 

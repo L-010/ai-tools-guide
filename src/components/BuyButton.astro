@@ -7,8 +7,18 @@ type Props = {
   class?: string;
   shopHref?: string;
   shopCategory?: string;
+  placement?: string;
+  scene?: string;
 };
-const { pageSlug, text = "进入AI工具小店选购", position, shopHref, shopCategory } = Astro.props;
+const {
+  pageSlug,
+  text = "进入AI工具小店选购",
+  position,
+  shopHref,
+  shopCategory,
+  placement = position,
+  scene = shopCategory || "article"
+} = Astro.props;
 const href = shopLink(pageSlug, shopHref, shopCategory);
 ---
 <a
@@ -18,6 +28,8 @@ const href = shopLink(pageSlug, shopHref, shopCategory);
   data-shop-cta
   data-page-slug={pageSlug}
   data-cta-position={position}
+  data-placement={placement}
+  data-scene={scene}
   class:list={["inline-flex items-center justify-center rounded-md bg-brand px-5 py-3 text-sm font-semibold text-white no-underline transition hover:bg-teal-800", Astro.props.class]}
 >
   {text}

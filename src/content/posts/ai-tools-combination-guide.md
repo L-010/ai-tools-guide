@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT、Claude、Perplexity 怎么搭配？"
-description: "围绕ChatGPT Claude Perplexity 怎么搭配，从适用场景、预算、使用频率、工具差异和购买前注意事项做系统分析，帮助你按需求选择合适的 AI 工具。"
+description: "说明 ChatGPT、Claude、Perplexity 在通用生成、长文整理和资料搜索中的分工，帮助高频用户建立更清晰的 AI 工具组合。"
 slug: "ai-tools-combination-guide"
 category: "FAQ 长尾"
 primaryKeyword: "ChatGPT Claude Perplexity 怎么搭配"
@@ -10,7 +10,25 @@ secondaryKeywords:
   - "AI 工具搭配"
 intent: "faq"
 updatedAt: "2026-05-30"
-ctaText: "进入AI工具小店选购"
+ctaText: "按工作流查看 AI 工具组合方案"
+excerpt: "工具组合的前提是任务确实跨越搜索、写作和复核多个环节；低频用户通常先用好一个主力工具更合适。"
+dateModified: "2026-06-09"
+tags:
+  - "AI 工具组合"
+  - "ChatGPT"
+  - "Claude"
+  - "Perplexity"
+tools:
+  - "ChatGPT"
+  - "Claude"
+  - "Perplexity"
+audience: "单一工具无法覆盖搜索、写作与资料整理流程的高频用户"
+shopCategory: "AI 工具组合"
+shopHref: "https://pay.ldxp.cn/shop/ai007"
+relatedSlugs:
+  - "chatgpt-plus-worth-it"
+  - "claude-pro-worth-it"
+  - "perplexity-worth-it"
 faq:
   - question: "ChatGPT Claude Perplexity 怎么搭配应该先看哪些因素？"
     answer: "先明确工作流有几个环节。如果需要资料搜索+深度写作+日常问答，三工具组合有意义；如果主要是日常问答，一个工具就够了。"
@@ -44,6 +62,9 @@ faq:
 
 对于ChatGPT Claude Perplexity 怎么搭配，建议把需求分成“必须完成”和“偶尔需要”两类。必须完成的任务决定主力工具，偶尔需要的任务决定是否补充第二工具。这样做的好处是预算更清楚，也能避免买了很多工具却没有稳定使用流程。
 
+
+<!-- contextual-shop-cta -->
+
 ## 工具差异与适配度
 
 | 判断维度 | 更适合的选择 | 原因 |
@@ -72,6 +93,8 @@ faq:
 购买前建议先写下三个问题：我最常用的场景是什么？我每周大概使用几次？我是否需要搜索、写作、代码或办公多个环节配合？如果答案很集中，就选一个主力工具；如果答案分散，再考虑组合方案。
 
 进入小店前，也建议先阅读对应分类说明，确认当前可选方案是否匹配你的用途。本站不会展示虚假的价格、库存或评分，也不会复制小店商品全集。这里的作用是帮你做选型教育，小店页面负责展示具体方案。
+
+<!-- consideration-shop-cta -->
 
 ## 推荐阅读和内部链接
 

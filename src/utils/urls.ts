@@ -1,4 +1,4 @@
-import { SITE } from "@/data/site";
+import { SITE } from "../data/site";
 
 export function trimSlash(value: string) {
   return value.replace(/\/+$/, "");

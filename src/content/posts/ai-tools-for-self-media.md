@@ -1,6 +1,6 @@
 ---
 title: "自媒体文案和脚本用什么 AI？"
-description: "围绕自媒体文案和脚本用什么 AI，从适用场景、预算、使用频率、工具差异和购买前注意事项做系统分析，帮助你按需求选择合适的 AI 工具。"
+description: "围绕自媒体选题、标题、脚本、长文和内容改写，分析 ChatGPT、Claude 等 AI 工具的适用环节与发布前检查。"
 slug: "ai-tools-for-self-media"
 category: "场景需求"
 primaryKeyword: "自媒体文案和脚本用什么 AI"
@@ -10,7 +10,24 @@ secondaryKeywords:
   - "内容创作 AI"
 intent: "scenario"
 updatedAt: "2026-05-30"
-ctaText: "进入AI工具小店选购"
+ctaText: "按内容创作流程查看 AI 工具方案"
+excerpt: "AI 可加快选题和初稿生成，但账号定位、事实核验、个人表达和最终发布判断不能交给工具。"
+dateModified: "2026-06-09"
+tags:
+  - "自媒体 AI 工具"
+  - "内容创作"
+  - "脚本写作"
+tools:
+  - "ChatGPT"
+  - "Claude"
+  - "Gemini"
+audience: "需要持续制作图文、短视频脚本或内容选题的创作者"
+shopCategory: "自媒体创作"
+shopHref: "https://pay.ldxp.cn/shop/ai007"
+relatedSlugs:
+  - "claude-vs-chatgpt-for-writing"
+  - "chatgpt-plus-worth-it"
+  - "claude-pro-worth-it"
 faq:
   - question: "自媒体文案和脚本用什么 AI应该先看哪些因素？"
     answer: "先看内容类型：图文文案、短视频脚本、长文章还是直播话术。不同内容形式对 AI 工具的要求不同，图文偏润色和标题优化，视频脚本偏结构和节奏设计。"
@@ -44,6 +61,9 @@ faq:
 
 对于自媒体文案和脚本用什么 AI，建议把需求分成“必须完成”和“偶尔需要”两类。必须完成的任务决定主力工具，偶尔需要的任务决定是否补充第二工具。这样做的好处是预算更清楚，也能避免买了很多工具却没有稳定使用流程。
 
+
+<!-- contextual-shop-cta -->
+
 ## 工具差异与适配度
 
 | 判断维度 | 更适合的选择 | 原因 |
@@ -72,6 +92,8 @@ faq:
 购买前建议先写下三个问题：我最常用的场景是什么？我每周大概使用几次？我是否需要搜索、写作、代码或办公多个环节配合？如果答案很集中，就选一个主力工具；如果答案分散，再考虑组合方案。
 
 进入小店前，也建议先阅读对应分类说明，确认当前可选方案是否匹配你的用途。本站不会展示虚假的价格、库存或评分，也不会复制小店商品全集。这里的作用是帮你做选型教育，小店页面负责展示具体方案。
+
+<!-- consideration-shop-cta -->
 
 ## 推荐阅读和内部链接
 

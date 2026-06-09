@@ -1,6 +1,6 @@
 ---
 title: "写代码用什么 AI 工具？"
-description: "围绕写代码用什么 AI 工具，从适用场景、预算、使用频率、工具差异和购买前注意事项做系统分析，帮助你按需求选择合适的 AI 工具。"
+description: "按代码补全、项目理解、调试和重构等任务，分析 Cursor、GitHub Copilot、ChatGPT 等 AI 编程工具的适用方式。"
 slug: "ai-tools-for-coding"
 category: "场景需求"
 primaryKeyword: "写代码用什么 AI 工具"
@@ -10,7 +10,24 @@ secondaryKeywords:
   - "程序员 AI"
 intent: "scenario"
 updatedAt: "2026-05-30"
-ctaText: "进入AI工具小店选购"
+ctaText: "按编程任务查看 AI 开发工具方案"
+excerpt: "写代码时应先区分补全、项目级修改和问题解释，再选择主力工具；所有生成代码仍需测试和人工审查。"
+dateModified: "2026-06-09"
+tags:
+  - "AI 编程工具"
+  - "代码辅助"
+  - "程序开发"
+tools:
+  - "Cursor"
+  - "GitHub Copilot"
+  - "ChatGPT"
+audience: "需要代码补全、项目理解、调试或重构辅助的开发者"
+shopCategory: "代码开发"
+shopHref: "https://pay.ldxp.cn/shop/ai007"
+relatedSlugs:
+  - "cursor-pro-worth-it"
+  - "github-copilot-worth-it"
+  - "cursor-vs-github-copilot"
 faq:
   - question: "写代码用什么 AI 工具应该先看哪些因素？"
     answer: "先看主要编程语言和项目类型。Web 开发、数据分析、系统编程对工具的要求不同。其次看是补全需求还是项目级理解和重构需求，这决定了选轻量还是深度工具。"
@@ -44,6 +61,9 @@ faq:
 
 对于写代码用什么 AI 工具，建议把需求分成“必须完成”和“偶尔需要”两类。必须完成的任务决定主力工具，偶尔需要的任务决定是否补充第二工具。这样做的好处是预算更清楚，也能避免买了很多工具却没有稳定使用流程。
 
+
+<!-- contextual-shop-cta -->
+
 ## 工具差异与适配度
 
 | 判断维度 | 更适合的选择 | 原因 |
@@ -72,6 +92,8 @@ faq:
 购买前建议先写下三个问题：我最常用的场景是什么？我每周大概使用几次？我是否需要搜索、写作、代码或办公多个环节配合？如果答案很集中，就选一个主力工具；如果答案分散，再考虑组合方案。
 
 进入小店前，也建议先阅读对应分类说明，确认当前可选方案是否匹配你的用途。本站不会展示虚假的价格、库存或评分，也不会复制小店商品全集。这里的作用是帮你做选型教育，小店页面负责展示具体方案。
+
+<!-- consideration-shop-cta -->
 
 ## 推荐阅读和内部链接
 

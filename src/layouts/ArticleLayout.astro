@@ -18,6 +18,8 @@ const category = categoryPages[categorySlug];
 const dateModified = data.dateModified || data.updatedAt;
 const datePublished = data.datePublished || data.updatedAt;
 const ctaText = data.ctaText || "按你的用途进入小店查看可选方案";
+const middleCtaText = data.shopCategory ? `确认${data.shopCategory}当前可选方案` : "确认当前可选方案";
+const nextCtaText = data.shopCategory ? `查看${data.shopCategory}下一步方案` : "查看下一步可选方案";
 const description = data.description || getPostExcerpt(entry);
 const allPosts = await getCollection("posts");
 const nextPosts = getNextReadingPosts(entry, allPosts);
@@ -37,23 +39,23 @@ const schema = articleSchema({
 });
 ---
 <BaseLayout title={data.title} description={description} pathname={pageSlug} type="article" schema={schema}>
-  <article class="mx-auto max-w-[860px] px-5 py-8 md:py-12">
+  <article class="mx-auto max-w-[860px] px-5 py-6 md:py-12">
     <Breadcrumbs items={crumbs} />
     <p class="mb-3 text-sm font-semibold text-brand">{category.shortTitle} · 更新于 {dateModified}</p>
     <h1 class="text-3xl font-bold leading-tight text-ink md:text-5xl">{data.title}</h1>
     <p class="mt-5 text-lg leading-8 text-muted">{description}</p>
+    <CTABox pageSlug={pageSlug} position="top" buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
     <section class="mt-6 rounded-xl border border-line bg-white p-5">
       <h2 class="text-xl font-bold text-ink">摘要结论</h2>
       <p class="mt-3 leading-7 text-muted">{getPostExcerpt(entry)}</p>
       <p class="mt-3 text-sm leading-6 text-muted">建议先确认用途、预算和使用频率，再进入具体工具或小店分类页面做最终判断。</p>
     </section>
-    <CTABox pageSlug={pageSlug} position="top" buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
     <TrustNotice />
     <div class="prose-site mt-8">
       <slot />
     </div>
-    <CTABox pageSlug={pageSlug} position="middle" title="看完分析后，再确认当前可选方案" buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
+    <CTABox pageSlug={pageSlug} position="middle" title="看完分析后，再确认当前可选方案" buttonText={middleCtaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
     <FAQ items={data.faq} />
-    <NextStepReading posts={nextPosts} pageSlug={pageSlug} buttonText={ctaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
+    <NextStepReading posts={nextPosts} pageSlug={pageSlug} buttonText={nextCtaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
   </article>
 </BaseLayout>
