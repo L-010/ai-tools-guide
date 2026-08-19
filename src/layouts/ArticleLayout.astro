@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import CTABox from "@/components/CTABox.astro";
 import FAQ from "@/components/FAQ.astro";
 import NextStepReading from "@/components/NextStepReading.astro";
+import ContactCTA from "@/components/ContactCTA.astro";
 import TrustNotice from "@/components/TrustNotice.astro";
 import { getCollection } from "astro:content";
 import { categoryPages, getNextReadingPosts, getPostCategorySlug, getPostExcerpt } from "@/data/categories";
@@ -57,5 +58,15 @@ const schema = articleSchema({
     <CTABox pageSlug={pageSlug} position="middle" title="看完分析后，再确认当前可选方案" buttonText={middleCtaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
     <FAQ items={data.faq} />
     <NextStepReading posts={nextPosts} pageSlug={pageSlug} buttonText={nextCtaText} shopHref={data.shopHref} shopCategory={data.shopCategory} />
+    {data.contactHref && data.contactText && (
+      <ContactCTA
+        pageSlug={pageSlug}
+        href={data.contactHref}
+        text={data.contactText}
+        title={data.contactTitle}
+        description={data.contactDescription}
+        scene={data.contactScene}
+      />
+    )}
   </article>
 </BaseLayout>

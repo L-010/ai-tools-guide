@@ -20,6 +20,11 @@ const posts = defineCollection({
     shopCategory: z.string().optional(),
     shopHref: z.string().optional(),
     ctaText: z.string().optional(),
+    contactHref: z.string().url().optional(),
+    contactText: z.string().optional(),
+    contactTitle: z.string().optional(),
+    contactDescription: z.string().optional(),
+    contactScene: z.string().optional(),
     relatedSlugs: z.array(z.string()).optional(),
     featured: z.boolean().optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() }))

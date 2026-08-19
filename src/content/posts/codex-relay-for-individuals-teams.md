@@ -25,6 +25,11 @@ audience: "需要使用 Codex 的个人开发者、下游集成方，以及需�
 shopCategory: "Codex 中转服务"
 shopHref: "https://ai007.com.cn/"
 ctaText: "查看 Codex 中转服务说明"
+contactHref: "https://work.weixin.qq.com/ca/cawcde20889e2369b6"
+contactText: "联系我咨询团队或企业搭建"
+contactTitle: "需要讨论团队、下游或企业 Codex 接入？"
+contactDescription: "准备好客户数或成员数、典型任务、预算和权限需求后，可通过企业微信沟通中转层及内部费用管理方案。"
+contactScene: "Codex 团队咨询"
 relatedSlugs:
   - "ai-tools-for-programmers"
   - "ai-tools-stable-use"
@@ -67,10 +72,7 @@ faq:
 
 在沟通下游接入前，建议先准备四项信息：预计接入客户数、每个客户的典型调用场景、是否需要独立额度和回调能力、以及对账周期。若业务中包含面向终端客户的产品，还应提前确认用户告知、数据处理、售后边界和相关平台的授权要求。清晰的边界比含糊的“全包”承诺更有利于长期合作。
 
-<aside class="contextual-shop-cta" aria-label="Codex 下游合作咨询入口">
-  <p>需要讨论下游接入、用量分组或技术对接？可先查看服务说明，再按你的客户数量和管理需求沟通。</p>
-  <a href="https://ai007.com.cn/" target="_blank" rel="nofollow sponsored noopener" data-shop-cta data-page-slug="codex-relay-for-individuals-teams" data-cta-position="downstream" data-placement="downstream-consultation" data-scene="Codex 下游合作">查看 Codex 下游接入说明</a>
-</aside>
+如果需要讨论下游接入、用量分组或技术对接，可以先整理客户数量和管理需求，再通过页面中的团队咨询入口沟通。
 
 ## 团队和企业：为什么值得评估自己的中转层
 
@@ -111,14 +113,8 @@ faq:
 4. 安全要求：是否涉及敏感代码、内网环境、日志留存、权限审批或供应商准入。
 5. 支持边界：谁负责员工培训、技术排查、客户支持和费用复核。
 
-<aside class="contextual-shop-cta" aria-label="Codex 团队方案咨询入口">
-  <p>已经明确个人、下游或企业的使用场景？可查看服务说明，或通过企业微信沟通团队中转层与内部费用管理需求。</p>
-  <a href="https://ai007.com.cn/" target="_blank" rel="nofollow sponsored noopener" data-shop-cta data-page-slug="codex-relay-for-individuals-teams" data-cta-position="service" data-placement="article-service" data-scene="Codex 中转服务">查看 Codex 服务说明</a>
-  <a href="https://work.weixin.qq.com/ca/cawcde20889e2369b6" target="_blank" rel="nofollow sponsored noopener" data-shop-cta data-page-slug="codex-relay-for-individuals-teams" data-cta-position="contact" data-placement="article-contact" data-scene="Codex 团队咨询">联系我咨询团队或企业搭建</a>
-</aside>
-
 ## 最后总结
 
 Codex 中转站的价值，不应只用“能否接入”来判断。个人用户需要的是可控的项目成本和安全的密钥习惯；下游合作方需要的是独立账目、可核对的用量与明确的服务边界；团队和企业则需要把员工、项目、预算和权限放进可持续管理的流程。
 
-先明确自己属于哪一类需求，再<a href="https://ai007.com.cn/" target="_blank" rel="nofollow sponsored noopener">查看 Codex 服务说明</a>，或通过<a href="https://work.weixin.qq.com/ca/cawcde20889e2369b6" target="_blank" rel="nofollow sponsored noopener">企业微信联系咨询</a>。所有接入都应基于已获授权的账号和用途，并以实际服务说明及相关平台规则为准。
+先明确自己属于哪一类需求，再从页面提供的服务说明和团队咨询入口开始确认。所有接入都应基于已获授权的账号和用途，并以实际服务说明及相关平台规则为准。

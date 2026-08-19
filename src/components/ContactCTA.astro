@@ -1,0 +1,40 @@
+---
+type Props = {
+  pageSlug: string;
+  href: string;
+  text: string;
+  title?: string;
+  description?: string;
+  scene?: string;
+};
+
+const {
+  pageSlug,
+  href,
+  text,
+  title = "需要为团队规划 Codex 接入？",
+  description = "准备好成员规模、典型任务、预算和权限管理需求后，可通过企业微信沟通团队或企业搭建方案。",
+  scene = "团队咨询"
+} = Astro.props;
+---
+<section class="mt-8 rounded-lg border border-sky-200 bg-sky-50 p-5">
+  <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p class="text-lg font-bold text-ink">{title}</p>
+      <p class="mt-2 text-sm leading-6 text-muted">{description}</p>
+    </div>
+    <a
+      href={href}
+      target="_blank"
+      rel="nofollow sponsored noopener"
+      data-shop-cta
+      data-page-slug={pageSlug}
+      data-cta-position="contact"
+      data-placement="article-contact"
+      data-scene={scene}
+      class="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-sky-700 px-5 py-3 text-sm font-semibold text-white no-underline transition hover:bg-sky-800 md:w-auto"
+    >
+      {text}
+    </a>
+  </div>
+</section>
